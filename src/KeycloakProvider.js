@@ -15,7 +15,7 @@ const KeycloakProvider = ({ children }) => {
         .init({
           onLoad: "login-required",
           pkceMethod: "S256",
-          redirectUri: "https://auth.wealthwise.ajadhav.com/dashboard",
+          redirectUri: window.location.origin + "/dashboard",
           checkLoginIframe: false,
         })
         .then(async auth => {
