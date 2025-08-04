@@ -82,11 +82,11 @@ export default function Transaction() {
       try {
         let response;
         if (isSearchMode) {
-          response = await axiosInstance.get(`http://localhost:5000/api/v1/transactions/search`, {
+          response = await axiosInstance.get(`https://api.wealthwise.ajadhav.com/api/v1/transactions/search`, {
             params: buildSearchQuery()
           });
         } else {
-          response = await axiosInstance.get(`http://localhost:5000/api/v1/transactions`, {
+          response = await axiosInstance.get(`https://api.wealthwise.ajadhav.com/api/v1/transactions`, {
             params: { page, size }
           });
         }
@@ -123,12 +123,12 @@ export default function Transaction() {
           nextOccurrence: null
         };
 
-        await axiosInstance.post("http://localhost:5000/api/v1/recurring-transactions", recurringPayload);
+        await axiosInstance.post("https://api.wealthwise.ajadhav.com/api/v1/recurring-transactions", recurringPayload);
         showToast("Recurring transaction created!", "success");
       } else {
         // Step 1: Create transaction
         const payload = { ...newTransaction, amount: parseFloat(newTransaction.amount) };
-        const txnResponse = await axiosInstance.post("http://localhost:5000/api/v1/transactions", payload);
+        const txnResponse = await axiosInstance.post("https://api.wealthwise.ajadhav.com/api/v1/transactions", payload);
         const createdTransaction = txnResponse.data;
 
         // Step 2: Upload receipt if file is present
@@ -142,7 +142,7 @@ export default function Transaction() {
             })], { type: "application/json" })
           );
 
-          await axiosInstance.post("http://localhost:5000/api/v1/receipt", formData, {
+          await axiosInstance.post("https://api.wealthwise.ajadhav.com/api/v1/receipt", formData, {
             headers: {
               "Content-Type": "multipart/form-data"
             }
@@ -179,7 +179,7 @@ export default function Transaction() {
   const handleEditTransaction = async () => {
     try {
       const payload = { ...editTransaction, amount: parseFloat(editTransaction.amount) };
-      const response = await axiosInstance.patch(`http://localhost:5000/api/v1/transactions/${editTransaction.transactionId}`, payload);
+      const response = await axiosInstance.patch(`https://api.wealthwise.ajadhav.com/api/v1/transactions/${editTransaction.transactionId}`, payload);
       setTransactions(prev => prev.map(t => t.transactionId === editTransaction.transactionId ? response.data : t));
       setOpenEdit(false);
       showToast("Transaction updated successfully!", "success");
@@ -191,7 +191,7 @@ export default function Transaction() {
 
   const handleDeleteTransaction = async () => {
     try {
-      await axiosInstance.delete(`http://localhost:5000/api/v1/transactions/${deleteTransactionId}`);
+      await axiosInstance.delete(`https://api.wealthwise.ajadhav.com/api/v1/transactions/${deleteTransactionId}`);
       setTransactions(prev => prev.filter(t => t.transactionId !== deleteTransactionId));
       setConfirmOpen(false);
       showToast("Transaction deleted successfully!", "success");

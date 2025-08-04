@@ -76,11 +76,11 @@ export default function RecurringTransaction() {
       try {
         let res;
         if (isSearchMode) {
-          res = await axiosInstance.get(`http://localhost:5000/api/v1/recurring-transactions/search`, {
+          res = await axiosInstance.get(`https://api.wealthwise.ajadhav.com/api/v1/recurring-transactions/search`, {
             params: buildSearchQuery()
           });
         } else {
-          res = await axiosInstance.get(`http://localhost:5000/api/v1/recurring-transactions`, {
+          res = await axiosInstance.get(`https://api.wealthwise.ajadhav.com/api/v1/recurring-transactions`, {
             params: { page, size }
           });
         }
@@ -109,7 +109,7 @@ export default function RecurringTransaction() {
         amount: parseFloat(editTransaction.amount),
       };
       const { recurringTransactionId } = editTransaction;
-      const response = await axiosInstance.patch(`http://localhost:5000/api/v1/recurring-transactions/${recurringTransactionId}`, payload);
+      const response = await axiosInstance.patch(`https://api.wealthwise.ajadhav.com/api/v1/recurring-transactions/${recurringTransactionId}`, payload);
       setTransactions(prev => prev.map(t =>
         t.recurringTransactionId === recurringTransactionId ? response.data : t
       ));
@@ -123,7 +123,7 @@ export default function RecurringTransaction() {
 
   const handleDeleteTransaction = async () => {
     try {
-      await axiosInstance.delete(`http://localhost:5000/api/v1/recurring-transactions/${deleteTransactionId}`);
+      await axiosInstance.delete(`https://api.wealthwise.ajadhav.com/api/v1/recurring-transactions/${deleteTransactionId}`);
       setTransactions(prev => prev.filter(t => t.recurringTransactionId !== deleteTransactionId));
       setConfirmOpen(false);
       showToast("Recurring transaction deleted!", "success");
@@ -140,7 +140,7 @@ export default function RecurringTransaction() {
         amount: parseFloat(newTransaction.amount),
       };
 
-      const res = await axiosInstance.post(`http://localhost:5000/api/v1/recurring-transactions`, payload);
+      const res = await axiosInstance.post(`https://api.wealthwise.ajadhav.com/api/v1/recurring-transactions`, payload);
       setTransactions(prev => [res.data, ...prev]);
       setOpenAdd(false);
       setNewTransaction(DEFAULT_TRANSACTION);

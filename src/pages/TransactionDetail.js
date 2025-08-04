@@ -27,7 +27,7 @@ const TransactionDetail = () => {
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const txRes = await axiosInstance.get(`http://localhost:5000/api/v1/transactions/${transactionId}`);
+                const txRes = await axiosInstance.get(`https://api.wealthwise.ajadhav.com/api/v1/transactions/${transactionId}`);
                 setTransaction(txRes.data);
             } catch (err) {
                 setError("Failed to load transaction.");
@@ -39,7 +39,7 @@ const TransactionDetail = () => {
         const fetchReceipt = async () => {
             try {
                 const res = await axiosInstance.get(
-                    `http://localhost:5000/api/v1/receipt/view/${transactionId}`,
+                    `https://api.wealthwise.ajadhav.com/api/v1/receipt/view/${transactionId}`,
                     { responseType: 'blob' }
                 );
 
@@ -58,7 +58,7 @@ const TransactionDetail = () => {
     }, [transactionId]);
 
     const handleDownload = () => {
-        window.open(`http://localhost:5000/api/v1/receipt/download/${transactionId}`, '_blank');
+        window.open(`https://api.wealthwise.ajadhav.com/api/v1/receipt/download/${transactionId}`, '_blank');
     };
 
     const handleBack = () => navigate(-1);
