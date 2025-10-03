@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Wealthwise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Wealthwise is a modern personal finance manager built with **React**, **Spring Boot**, **PostgreSQL**, and **Keycloak**. It helps you track income, expenses, savings, receipts, and recurring transactions with a clean dashboard and charts.
 
-## Available Scripts
+👉 **[Live Demo](https://wealthwise.ajadhav.com/)**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Authentication & Security
+- User registration, login, and logout
+- OAuth 2.0 support (Google login)
+- Keycloak-based authentication and authorization
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Transactions
+- Create, Read, Update, Delete (CRUD)
+- Pagination & search support
 
-### `npm test`
+### Receipts
+- Upload and store receipts in PDF, JPG, PNG formats
+- View and download receipts anytime
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Recurring Transactions
+- CRUD support for recurring payments (e.g., rent, subscriptions)
+- Pagination & search functionality
 
-### `npm run build`
+### Dashboard
+- Monthly transaction summary (income, expenses, savings)
+- Visual charts (pie charts for spending categories)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Progressive Web App (PWA)
+- Installable on desktop and mobile
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📸 Screenshots
+- Login Page
+  ![Login Page](screenshots/Login.png)
+- Dashboard
+  ![Dashboard](screenshots/Dashboard.png)
+- Transactions Page
+  ![Transactions Page](screenshots/Transactions.png)
+Recurring Transactions Page
+  ![Recurring Transactions Page](screenshots/Recurring_Transactions.png)
+---
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend:** React, Axios
+- **Auth:** Keycloak, OAuth 2.0
+- **Backend:** Java, Spring Boot, Spring Data JPA, Hibernate
+- **Database:** PostgreSQL
+- **Logging & Observability:** Log4j2, Promtail, Loki, Prometheus, Grafana
+- **Containerization:** Docker, Docker Compose
+- **Web Server:** Nginx, Certbot (Let's Encrypt)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚀 Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Application runs on a VPS with Docker Compose.
+- Nginx serves as reverse proxy with HTTPS enabled.
+- Observability stack (Prometheus, Loki, Grafana) provides monitoring and centralized logging.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🎯 Motivation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I wanted a simple and privacy-focused tool to track my personal expenses. Instead of relying on third-party apps, I built Wealthwise and hosted it on the internet so that others can use it as well.
